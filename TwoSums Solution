@@ -1,0 +1,20 @@
+/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[]}
+ */
+var twoSum = function(nums, target) {
+    //This will run through every number in the array but the last one, as doing the last one would throw an indexOutOfBounds error should it try to run the code for the last number in the array.
+    for (let firstNum = 0; firstNum < nums.length - 1; firstNum++){
+        //Getting the index of the next number in line to be checked, starting with whatever number comes right after the index of the number that was .
+        for (let secondNum = firstNum + 1; secondNum < nums.length; secondNum++){
+            //Checks to see if the two numbers add up to the target number.
+            if (nums[secondNum] + nums[firstNum] == target){
+                //Makes an array containing those two indexes
+                let indexes = [firstNum, secondNum];
+                //returns an array containing only the indexes of the first two numbers that add up to the target.
+                return indexes;
+            }
+        }
+    }
+};
